@@ -83,8 +83,7 @@ button {
   font-size: 2em;
   margin-left: 10em;
 }
-h3 {
-}
+
 .flex-container {
   display: flex;
   flex-flow: row wrap;
