@@ -1,1 +1,146 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
+body{
+    color: white;
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.flex{
+    display: flex;
+}
+
+.welcomeSection {
+    margin-left: 4em;
+    width:1000px;
+    line-height: 27px;
+}
+.welcomeContainer{
+    width: 650px;
+}
+.welcomeSection h4 {
+    font-size: 3.4em;
+}
+
+.welcomeSection h5 {
+    font-size: 1.8em;
+}
+
+.welcomeSection h6 {
+    font-size: 2rem;
+}
+
+.subtitle{
+    font-size:0.9em;
+    
+}
+.welcomeSection li{
+    font-size:0.8em;
+}
+.welcomeSection ul {
+    list-style-type: disc;
+    margin-left: 30px; 
+    margin-top: 30px;
+}
+.welcomeSection ul::marker{
+    font-size: 5.5em;
+}
+
+.container{
+    justify-content: space-between;
+    align-items: center; 
+    padding: 50px 0 ;
+}
+  
+.checkboxContainer {
+    align-items:center; 
+    font-weight: 200;
+    font-size: 0.8em;
+    width: 1000px;
+  }
+
+#checkbox{
+    margin-right: 8px;
+}
+
+.proceed {
+    width: 550px;
+    height: 65px;
+    margin-left: 300px;
+}
+
+.button {
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid white;
+    padding:15px;
+}
+
+.title {
+    padding-top: 80px;
+    font-size: 5em;
+    max-width: 400px;
+    line-height: 0.8;
+}
+
+.instructions {
+    color: #C2128D;
+    font-size: 2em;
+    font-weight: bold;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.logo img {
+    width: 150px; 
+}
+
+.logo {
+    padding-left: 80px;
+    padding-top: 30px;
+}
+
+strong {
+    font-weight: 600;
+}
+
+#question {
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.button {
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid white;
+    padding:15px;
+}
+
+.proceed {
+    width: 550px;
+    height: 65px;
+    margin-left: 300px;
+}
+
+
+.blueButton{
+    cursor: pointer;
+    color: #0B113B;
+    background-color: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF;
+    border: none;
+}
+
+.pointer{
+    cursor: pointer;
+}
