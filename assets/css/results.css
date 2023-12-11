@@ -34,6 +34,7 @@ h1 {
   font-size: 30px;
   margin-bottom: 40px;
   font-weight: 400;
+  margin-top: 10px;
 }
 .bordo {
   text-align: center;
@@ -81,14 +82,18 @@ button {
 }
 .correct {
   font-size: 2em;
-  margin-right: 10em;
 }
 .wrong {
   font-size: 2em;
-  margin-left: 10em;
 }
-
+.correct .wrong p {
+  margin: 1.5em;
+  font-weight: 100;
+  font-size: 1em;
+}
 .flex-container {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
 }
