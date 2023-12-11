@@ -78,10 +78,14 @@ button {
 .correct {
   font-size: 2em;
   margin-right: 10em;
-  display: inline;
 }
 .wrong {
   font-size: 2em;
   margin-left: 10em;
-  display: inline;
+}
+h3 {
+}
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
 }
