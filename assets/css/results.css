@@ -15,3 +15,40 @@ body {
   width: 140px;
   height: 40px;
 }
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+}
+.sottotitolo {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.bordo {
+  text-align: center;
+
+  width: 230px;
+  height: 230px;
+  border: solid 50px #d20094;
+  border-radius: 50% 50% 50% 50%;
+
+  margin: auto;
+}
+
+h5 {
+  color: white;
+  margin-top: 50px;
+  font-size: 20px;
+}
+h4 {
+  color: #00ffff;
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+p {
+  color: rgb(212, 212, 212);
+  font-size: 14px;
+}
