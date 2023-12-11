@@ -78,3 +78,17 @@ button {
   margin-top: 60px;
   padding: 0.5em;
 }
+.correct {
+  font-size: 2em;
+  margin-right: 10em;
+}
+.wrong {
+  font-size: 2em;
+  margin-left: 10em;
+}
+h3 {
+}
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
