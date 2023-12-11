@@ -34,3 +34,13 @@ button {
   margin-top: 1.5em;
   padding: 0.5em;
 }
+.correct {
+  font-size: 2em;
+  margin-right: 10em;
+  display: inline;
+}
+.wrong {
+  font-size: 2em;
+  margin-left: 10em;
+  display: inline;
+}
