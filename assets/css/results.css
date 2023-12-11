@@ -81,11 +81,9 @@ button {
 }
 .correct {
   font-size: 2em;
-  margin-right: 10em;
 }
 .wrong {
   font-size: 2em;
-  margin-left: 10em;
 }
 
 .flex-container {
