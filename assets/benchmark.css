@@ -1,1 +1,85 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
+
+body {
+  background-image: url("./images/bg.jpg");
+}
+
+@property --t {
+  syntax: "<number>";
+  initial-value: 60;
+  inherits: true;
+}
+
+@property --s {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+
+.countdown {
+  --s: calc(var(--t) / 1);
+  display: grid;
+  margin: 1em auto;
+  width: 10em;
+  height: 10em;
+  padding-left: 100px;
+  padding-top: 50px;
+  color: white;
+  animation: t 60s linear infinite;
+}
+
+.countdown::after {
+  grid-column: 1;
+  grid-row: 1;
+  place-self: center;
+  font: 3em/2 outfit;
+  counter-reset: s var(--s);
+  content: "" counter(s, decimal-leading-zero);
+}
+
+.secondsLabel {
+  font: outfit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding-bottom: 510px;
+  padding-left: 100px;
+  transform: translate(-50%, -50%);
+  font-size: 0.75em;
+  color: white;
+}
+
+.thirdLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding-bottom: 380px;
+  padding-left: 100px;
+  transform: translate(-50%, -50%);
+  font-size: 0.7em;
+  color: white;
+}
+
+@keyframes t {
+  to {
+    --t: 0;
+  }
+}
+
+svg {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+[r] {
+  fill: none;
+  stroke: #00ffff;
+}
+
+[r] + [r] {
+  --k: calc(var(--t) / 60);
+  transform: rotate(-90deg);
+
+  stroke: color-mix(in hsl shorter hue, silver calc(var(--k) * 100%), silver);
+  stroke-dasharray: var(--k) 1;
+}
