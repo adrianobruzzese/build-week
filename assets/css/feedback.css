@@ -3,13 +3,15 @@
 #container {
   background-image: url(../images/bg.jpg);
   background-repeat: no-repeat;
-  padding: 40px 100px 100px 100px;
   background-size: cover;
   font-family: 'Outfit', sans-serif;
+  width: 95vw;
+  height: 95vh;
   text-align: center;
 }
 .header {
   margin: 35px 0 50px 80px;
+  text-align: left;
 }
 
 .logo {
@@ -17,17 +19,12 @@
   height: 35px;
 }
 
-
-.main {
-  text-align: center;
-}
-
 .mainTitle {
   color: #ffffff;
-  font-size: 55px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 700;
   font-family: 'Outfit', sans-serif;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .feedbackQuestion {
@@ -35,7 +32,6 @@
   line-height: 35px;
   color: #dedee3;
   font-family: 'Inter', sans-serif;
-  margin-bottom: 40px;
   margin: 0 100px 40px 100px;
 }
 
@@ -69,12 +65,12 @@ input:focus::placeholder {
   font-weight: bold;
   background: transparent;
   border: 2px solid white;
-  padding:15px;
+  padding: 15px;
 }
 
-.blueButton{
-  background: #00FFFF;
-  box-shadow: 2px 2px 30px #00FFFF;
+.blueButton {
+  background: #00ffff;
+  box-shadow: 2px 2px 30px #00ffff;
   color: #0b113b;
   border: none;
 }
