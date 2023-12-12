@@ -94,12 +94,6 @@ const questions = [
   },
 ]
 
-const risposte = [
-  ...domandaCorrente.incorrect_answers,
-  domandaCorrente.correct_answer,
-]
-risposte.sort(() => Math.random() - 0.5)
-
 let tot = questions.length - 1
 const random = function () {
   const numExt = []
@@ -116,47 +110,45 @@ const random = function () {
 
   return randomNumber
 }
+let k = random()
+const correct = [questions[k].correct_answer]
+const incorrect = questions[k].incorrect_answers
+
+console.log(correct)
+console.log(incorrect)
+const risposte = incorrect.concat(correct)
+
+risposte.sort(() => Math.random() - 0.5)
+console.log(risposte)
 const pageForm = document.getElementsByTagName('form')[0]
 
 pageForm.addEventListener('submit', function (e) {
   e.preventDefault()
 })
-let k = random()
-// scrive domanda
-const write = function () {
+
+//crea bot altre risposte
+const otherAnswers = function () {
   const quesion = document.getElementById('question')
 
   let newQuestion = document.createElement('h1')
 
-  newQuestion.innerText = questions[k].question
-
-  quesion.appendChild(newQuestion)
-}
-
-write()
-//crea bot risposta esatta
-const answers = function () {
-  const answersSpace = document.getElementsByTagName('form')[0]
-  let correctAnswer = document.createElement('button')
-  correctAnswer.innerText = questions[k].correct_answer
-  correctAnswer.classList.add('btn')
-
-  answersSpace.appendChild(correctAnswer)
-}
-
-answers()
-//crea bot altre risposte
-const otherAnswers = function () {
   const answersSpace = document.getElementsByTagName('form')
 
   let answersArray = questions[k].incorrect_answers
+  const array = questions[k].incorrect_answers
 
-  for (let i = 0; i < answersArray.length; i++) {
+  for (let i = 0; i < array.length + 1; i++) {
     let answers = document.createElement('button')
     answers.innerText = answersArray[i]
+    answers.innerText = risposte[i]
     answers.classList.add('btn')
     console.log(answersArray[i])
+    /*answers.addEventListener('clik' nome funzione da richiamare)*/
+
     answersSpace[0].appendChild(answers)
   }
+  newQuestion.innerText = questions[k].question
+
+  quesion.appendChild(newQuestion)
 }
 otherAnswers()
