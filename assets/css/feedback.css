@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     padding: 40px 100px 100px 100px;
     background-size: cover;
+    font-family: 'Inter', sans-serif;
 }
   .header {
     display: flex;
@@ -13,7 +14,7 @@
   }
   
   .logo {
-    width: 140px;
+    width: 160px;
     height: 40px;
   }
   
@@ -34,8 +35,14 @@
     line-height: 35px;
     color: #dedee3;
     font-family: "Inter", sans-serif;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    margin: 0 100px 40px 100px;
   }
+
+  #rating {
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
   
   #commentsBox {
     border: 0;
@@ -52,3 +59,31 @@
   .footer {
     text-align: center;
   }
+
+  .ratingStars svg path{
+    fill: #06083a;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .button {
+    color: white;
+    border: 2px solid white;
+    background: none;
+    font-size: 1.2rem;
+    width: 15rem;
+    height: 3.5rem;
+    font-weight: bold;
+  }
+  
+  .button.blueButton {
+    background: #00ffff;
+    box-shadow: 2px 2px 30px #00ffff;
+    color: #0b113b;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    margin-top: 35px;
+  }
+  

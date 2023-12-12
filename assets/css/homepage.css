@@ -13,6 +13,12 @@ body{
     color: white;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
 strong {
     font-weight: 700;
 }
@@ -106,7 +112,7 @@ h6{
     padding: 50px 0 ;
 }
   
-.checkbox-container {
+.checkboxContainer {
     align-items:center; 
     font-weight: 200;
     font-size: 0.8em;
@@ -146,7 +152,7 @@ h6{
 }
 
 .title {
-    padding-top: 80px;
+    padding-top: 35px;
     font-size: 5em;
     max-width: 400px;
     line-height: 0.8;
