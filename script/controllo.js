@@ -94,32 +94,38 @@ const questions = [
   },
 ]
 
-let tot = questions.length - 1
-const random = function () {
-  const numExt = []
-  for (let k = 0; k <= tot; k++) {
-    numExt.push(k)
-  }
+//9
+// const random = function () {
+//   let tot = questions.length - 1
+//   const numExt = []
+//   for (let k = 0; k <= tot; k++) {
+//     numExt.push(k)
+//   }
 
-  const randomI = Math.floor(Math.random() * numExt.length)
-  const randomNumber = numExt[randomI]
-  console.log(randomNumber)
-  numExt.splice(randomI, 1)
+//   const randomI = Math.floor(Math.random() * numExt.length)
+//   const randomNumber = numExt[randomI]
+//   console.log('domanda:' + randomNumber)
+//   numExt.splice(randomI, 1)
 
-  tot = tot - 1
+//   tot = tot - 1
 
-  return randomNumber
+//   return randomNumber
+// }
+const num1 = []
+for (let i = 0; i <= questions.length - 1; i++) {
+  num1.push(i)
 }
-let k = random()
-const correct = [questions[k].correct_answer]
-const incorrect = questions[k].incorrect_answers
+const randomNumber = function () {
+  const genNumber = Math.floor(Math.random() * num1.length)
+  const genNumber1 = num1[genNumber]
+  num1.splice(genNumber, 1)
+  console.log('domanda :' + genNumber1)
+  return genNumber1
+}
 
-console.log(correct)
-console.log(incorrect)
-const risposte = incorrect.concat(correct)
+let giuste = 0
+let sbagliate = 0
 
-risposte.sort(() => Math.random() - 0.5)
-console.log(risposte)
 const pageForm = document.getElementsByTagName('form')[0]
 
 pageForm.addEventListener('submit', function (e) {
@@ -128,6 +134,17 @@ pageForm.addEventListener('submit', function (e) {
 
 //crea bot altre risposte
 const otherAnswers = function () {
+  let k = randomNumber()
+
+  const correct = [questions[k].correct_answer]
+  const incorrect = questions[k].incorrect_answers
+
+  console.log(correct)
+  console.log(incorrect)
+  const risposte = incorrect.concat(correct)
+
+  risposte.sort(() => Math.random() - 0.5)
+  console.log(risposte)
   const quesion = document.getElementById('question')
 
   let newQuestion = document.createElement('h1')
@@ -142,13 +159,34 @@ const otherAnswers = function () {
     answers.innerText = answersArray[i]
     answers.innerText = risposte[i]
     answers.classList.add('btn')
-    console.log(answersArray[i])
-    /*answers.addEventListener('clik' nome funzione da richiamare)*/
-
     answersSpace[0].appendChild(answers)
-  }
-  newQuestion.innerText = questions[k].question
+    newQuestion.innerText = questions[k].question
 
-  quesion.appendChild(newQuestion)
+    quesion.appendChild(newQuestion)
+    let button = document.getElementsByClassName('btn')
+    console.log(button)
+    answers.addEventListener('click', function (e) {
+      let clickedAnswer = e.target.innerText
+
+      if (clickedAnswer === questions[k].correct_answer) {
+        giuste++
+        let firstChildElement = quesion.firstChild
+        quesion.removeChild(firstChildElement)
+        for (let r = 0; r < button.length; r++) {
+          button[r].classList.add('invisibile')
+        }
+        next()
+        console.log(giuste)
+      } else {
+        sbagliate++
+        next()
+        console.log(sbagliate)
+      }
+    })
+  }
 }
 otherAnswers()
+
+next = function () {
+  otherAnswers()
+}

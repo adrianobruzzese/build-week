@@ -111,3 +111,7 @@ p {
 strong {
   font-weight: 700;
 }
+
+.invisibile {
+  display: none;
+}
