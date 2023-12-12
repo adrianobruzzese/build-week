@@ -4,6 +4,8 @@ body{
     background-image: url(../images/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    width: 95vw;
+    height: 95vh;
 }
 
 #welcome{
@@ -14,29 +16,22 @@ body{
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+    margin: 35px 0 50px 80px;
+  }
+  
+  .logo {
+    width: 160px;
+    height: 35px;
   }
 
 strong {
     font-weight: 700;
 }
 
-img {
+/* img {
     max-width: 100%;
     max-height: 100%;
-}
-
-.logo img {
-    width: 160px;
-    height: 40px; 
-}
-
-.logo {
-    padding-left: 80px;
-    padding-top: 30px;
-}
+} */
 
 .flex{
     display: flex;
@@ -120,16 +115,16 @@ h6{
     width: 1000px;
   }
 
-.proceed {
+/* .proceed {
     width: 550px;
     height: 65px;
     margin-left: 300px;
-}
+} */
 
 .button {
     font-family: 'Outfit', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
-    width: 100%;
+    width: 200px;
     font-size: 1.5rem;
     font-weight: bold;
     background: transparent;

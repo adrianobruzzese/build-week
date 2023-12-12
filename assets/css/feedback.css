@@ -5,18 +5,18 @@
   background-repeat: no-repeat;
   padding: 40px 100px 100px 100px;
   background-size: cover;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
 }
 .header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
+  margin: 35px 0 50px 80px;
 }
 
 .logo {
   width: 160px;
-  height: 40px;
+  height: 35px;
 }
+
 
 .main {
   text-align: center;
@@ -62,22 +62,21 @@ input:focus::placeholder {
 }
 
 .button {
-  color: white;
-  border: 2px solid white;
-  background: none;
-  font-size: 1.2rem;
-  width: 15rem;
-  height: 3.5rem;
+  font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  width: 200px;
+  font-size: 1.5rem;
   font-weight: bold;
+  background: transparent;
+  border: 2px solid white;
+  padding:15px;
 }
 
-.button.blueButton {
-  background: #00ffff;
-  box-shadow: 2px 2px 30px #00ffff;
+.blueButton{
+  background: #00FFFF;
+  box-shadow: 2px 2px 30px #00FFFF;
   color: #0b113b;
   border: none;
-  font-family: 'Inter', sans-serif;
-  margin-top: 35px;
 }
 
 /* Rating stars design */

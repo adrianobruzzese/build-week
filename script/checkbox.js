@@ -1,10 +1,21 @@
-// Validazione del checkbox iniziale, da integrare nella pagina
+let areaCheckbox = document.getElementById('checkbox');
+let areaButton = document.querySelector('.button');
 
-const checkForm = function(form) {
-    if(!form.terms.checked) {
-      alert("Please indicate that you will answer the questions without external help!");
-      form.terms.focus();
-      return false;
+let firstPage = document.getElementById('page1')
+let secondPage = document.getElementById('page2')
+
+let timer = document.querySelector('.timer')
+areaButton.addEventListener('click', function () {
+    if (areaCheckbox.checked) {
+        firstPage.remove()
+        secondPage.classList.remove('hidden')
+        timer.classList.remove('hidden')
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please accept the agreement to proceed'
+        });
     }
-    return true;
-  };
+});
