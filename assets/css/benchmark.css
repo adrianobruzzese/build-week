@@ -42,7 +42,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding-bottom: 510px;
+  padding-bottom: 490px;
   padding-left: 100px;
   transform: translate(-50%, -50%);
   font-size: 0.75em;
@@ -53,7 +53,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding-bottom: 380px;
+  padding-bottom: 330px;
   padding-left: 100px;
   transform: translate(-50%, -50%);
   font-size: 0.7em;
