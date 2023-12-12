@@ -1,54 +1,107 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap');
 
 #container {
-    background-image: url(../images/bg.jpg);
-    background-repeat: no-repeat;
-    padding: 40px 100px 100px 100px;
-    background-size: cover;
+  background-image: url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
 }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-  }
-  
-  .logo {
-    width: 140px;
-    height: 40px;
-  }
-  
-  .main {
-    text-align: center;
-  }
-  
-  .mainTitle {
-    color: #ffffff;
-    font-size: 55px;
-    font-weight: bold;
-    font-family: "Outfit", sans-serif;
-    margin-bottom: 30px;
-  }
-  
-  .feedbackQuestion {
-    font-size: 23px;
-    line-height: 35px;
-    color: #dedee3;
-    font-family: "Inter", sans-serif;
-    margin-bottom: 30px;
-  }
-  
-  #commentsBox {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 3px solid #900080;;
-    width: 650px;
-    color: grey;
-    padding: 10px 25px;
-    font-size: 18px;
-    margin-bottom: 50px;
-  }
+.header {
+  margin: 35px 0 50px 80px;
+  text-align: left;
+}
 
-  .footer {
-    text-align: center;
-  }
+.logo {
+  width: 160px;
+  height: 35px;
+}
+
+.mainTitle {
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 30px;
+}
+
+.feedbackQuestion{
+  padding: 0 210px 0 210px;
+}
+
+.feedbackQuestion p{
+  font-size: 22px;
+  line-height: 35px;
+  color: #dedee3;
+  font-family: 'Inter', sans-serif;
+  margin: 0 100px 40px 100px;
+}
+
+.feedbackForm{
+padding-top: 25px;
+margin-bottom: 70px;
+}
+
+#commentsBox {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 3px solid #900080;
+  width: 750px;
+  color: grey;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+#commentsBox::placeholder {
+  padding-left: 10px;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+
+.footer {
+  text-align: center;
+}
+
+.button {
+  font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  width: 220px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: transparent;
+  border: 2px solid white;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.blueButton {
+  background: #00ffff;
+  box-shadow: 2px 2px 30px #00ffff;
+  color: #0b113b;
+  border: none;
+}
+
+/* Rating stars design */
+
+.rating {
+  display: inline-block;
+  position: relative;
+  font-size: 0;
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 0 6px 25px 6px;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+#rating {
+  margin-bottom: 55px;
+}
