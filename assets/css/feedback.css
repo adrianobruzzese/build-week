@@ -38,11 +38,6 @@
     margin-bottom: 40px;
     margin: 0 100px 40px 100px;
   }
-
-  #rating {
-    padding: 10px 0;
-    margin-bottom: 30px;
-}
   
   #commentsBox {
     border: 0;
@@ -55,17 +50,15 @@
     font-size: 18px;
     margin-bottom: 50px;
   }
+  #commentsBox::placeholder {
+    padding: 0 0 10px 15px;
+  }
+  input:focus::placeholder {
+    color: transparent;
+  }
 
   .footer {
     text-align: center;
-  }
-
-  .ratingStars svg path{
-    fill: #06083a;
-  }
-
-  .hidden {
-    display: none;
   }
 
   .button {
@@ -87,3 +80,25 @@
     margin-top: 35px;
   }
   
+  /* Rating stars design */
+
+  .rating {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+  }
+  
+  .star {
+    width: 30px; 
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease; 
+  }
+  
+  .star:hover {
+    transform: scale(1.2); 
+  }
+
+  #rating {
+    margin-bottom: 55px;
+  }
