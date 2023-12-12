@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap');
 
-body, html { 
+body,
+html {
   height: 100%;
   background-image: url(../images/bg.jpg);
   background-size: cover;
@@ -10,18 +11,15 @@ body, html {
 
 main {
   height: 700px;
- 
- margin-left: auto;
- margin-right: auto;
- padding: 8%;
-  
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8%;
 }
 header {
-  
-    padding-left: 80px;
-    padding-top: 30px;
+  padding-left: 80px;
+  padding-top: 30px;
 }
-
 
 img {
   height: 40px;
@@ -37,7 +35,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 100px;
-  padding-top: 50px;   
+  padding-top: 50px;
 }
 
 #timer {
@@ -50,7 +48,7 @@ h1 {
   font-weight: 400;
   display: inline-block;
   width: 500px;
- 
+
   font-size: 3em;
   color: white;
   margin-bottom: 60px;
@@ -76,7 +74,7 @@ h1 {
   margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.102);
   border-radius: 42px;
-  border: 2px solid #ffffff2a; */
+  border: 2px solid #ffffff2a;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -94,7 +92,7 @@ h1 {
   top: 1px;
 }
 
-p{
+p {
   font-size: 1.2em;
   display: inline-block;
 }
@@ -110,9 +108,6 @@ p{
   text-decoration: none;
 }
 
-strong{
+strong {
   font-weight: 700;
 }
-
-
-
