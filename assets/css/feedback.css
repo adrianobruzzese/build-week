@@ -5,8 +5,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Outfit', sans-serif;
-  width: 95vw;
-  height: 95vh;
   text-align: center;
 }
 .header {
@@ -23,16 +21,25 @@
   color: #ffffff;
   font-size: 50px;
   font-weight: 700;
-  font-family: 'Outfit', sans-serif;
-  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 30px;
 }
 
-.feedbackQuestion {
-  font-size: 23px;
+.feedbackQuestion{
+  padding: 0 210px 0 210px;
+}
+
+.feedbackQuestion p{
+  font-size: 22px;
   line-height: 35px;
   color: #dedee3;
   font-family: 'Inter', sans-serif;
   margin: 0 100px 40px 100px;
+}
+
+.feedbackForm{
+padding-top: 25px;
+margin-bottom: 70px;
 }
 
 #commentsBox {
@@ -40,14 +47,13 @@
   outline: 0;
   background: transparent;
   border-bottom: 3px solid #900080;
-  width: 650px;
+  width: 750px;
   color: grey;
-  padding: 10px 25px;
   font-size: 18px;
   margin-bottom: 50px;
 }
 #commentsBox::placeholder {
-  padding: 0 0 10px 15px;
+  padding-left: 10px;
 }
 input:focus::placeholder {
   color: transparent;
@@ -60,12 +66,13 @@ input:focus::placeholder {
 .button {
   font-family: 'Outfit', 'Helvetica Neue', sans-serif;
   box-sizing: border-box;
-  width: 200px;
+  width: 220px;
   font-size: 1.5rem;
   font-weight: bold;
   background: transparent;
   border: 2px solid white;
   padding: 15px;
+  cursor: pointer;
 }
 
 .blueButton {
