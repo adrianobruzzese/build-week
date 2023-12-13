@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
-
 body {
   background-image: url(../images/bg.jpg);
-  font-size: 1.2em;
 }
+
 @property --t {
   syntax: "<number>";
   initial-value: 60;
@@ -16,56 +15,58 @@ body {
   inherits: true;
 }
 
+.foto {
+  width: 250px;
+  position: fixed;
+  padding-left: 70px;
+  padding-top: 35px;
+  top: 20px;
+  left: 20px;
+}
+
 .countdown {
   --s: calc(var(--t) / 1);
   display: grid;
-  margin: 1em auto;
+  position: fixed;
+  top: 0px;
+  right: 150px;
   width: 10em;
   height: 10em;
-  padding-left: 100px;
-  padding-top: 50px;
-  color: white;
   animation: t 60s linear infinite;
 }
 
 .countdown::after {
-  grid-column: 1;
-  grid-row: 1;
-  place-self: center;
-  font: 3em/2 outfit;
-  counter-reset: s var(--s);
+  text-align: center;
+  color: white;
   content: "" counter(s, decimal-leading-zero);
-}
+  font: 3em /2 outfit;
+  counter-reset: s var(--s);
 
-.secondsLabel {
-  font: outfit;
   position: absolute;
   top: 50%;
   left: 50%;
-  padding-bottom: 490px;
-  padding-left: 100px;
   transform: translate(-50%, -50%);
-  font-size: 0.75em;
+}
+.secondoLabel {
   color: white;
+  font-family: inter;
+  font-size: 0.8em;
+  padding-left: 50px;
+  padding-bottom: 43px;
 }
 
-.thirdLabel {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding-bottom: 330px;
-  padding-left: 100px;
-  transform: translate(-50%, -50%);
-  font-size: 0.7em;
+.terzoLabel {
   color: white;
+  font-family: inter;
+  font-size: 0.8em;
+  padding-left: 45px;
+  padding-bottom: 40px;
 }
-
 @keyframes t {
   to {
     --t: 0;
   }
 }
-
 svg {
   grid-column: 1;
   grid-row: 1;
@@ -73,13 +74,12 @@ svg {
 
 [r] {
   fill: none;
-  stroke: #00ffff;
+  stroke: silver;
 }
-
 [r] + [r] {
   --k: calc(var(--t) / 60);
   transform: rotate(-90deg);
 
-  stroke: color-mix(in hsl shorter hue, silver calc(var(--k) * 100%), silver);
+  stroke: color-mix(in hsl shorter hue, #00ffff calc(var(--k) * 100%), #00ffff);
   stroke-dasharray: var(--k) 1;
 }
