@@ -114,9 +114,10 @@ const showResultBox = () => {
   let progress = setInterval(() => {
     progressStartValue++;
     progressValue.innerText = progressStartValue + "%";
-    circularStyle.style.background = `conic-gradient(red ${
+
+    circularStyle.style.background = `conic-gradient(#00ffff ${
       progressEndValue * 3.6
-    }deg, gray 0deg)`;
+    }deg, #80808000 0deg)`;
     if (progressStartValue === progressEndValue) {
       clearInterval(progress);
     }
