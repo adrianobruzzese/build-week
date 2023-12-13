@@ -115,6 +115,10 @@ const showResultBox = () => {
     progressStartValue++;
     progressValue.innerText = progressStartValue + "%";
 
+    // circularStyle.style.background = `radial-gradient(circle farthest-side at center center,#80808000 0%, #80808000 0%, #80808000 52%, #80808000 0%, #00FFFF 0%), conic-gradient( #00ffff ${
+    //   progressValue * 3.6
+    // }deg, #80808000 0deg)`;
+
     circularStyle.style.background = `conic-gradient(#00ffff ${
       progressEndValue * 3.6
     }deg, #80808000 0deg)`;
