@@ -1,47 +1,144 @@
-const giusto = localStorage.getItem('giusto');
-const sbagliato = localStorage.getItem('sbagliato');
+const questions = [
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question: 'What does CPU stand for?',
+    correct_answer: 'Central Processing Unit',
+    incorrect_answers: [
+      'Central Process Unit',
+      'Computer Personal Unit',
+      'Central Processor Unit',
+    ],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question:
+      'In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?',
+    correct_answer: 'Final',
+    incorrect_answers: ['Static', 'Private', 'Public'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'boolean',
+    difficulty: 'easy',
+    question: 'The logo for Snapchat is a Bell.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'boolean',
+    difficulty: 'easy',
+    question:
+      'Pointers were not used in the original C programming language; they were added later on in C++.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question:
+      'What is the most preferred image format used for logos in the Wikimedia database?',
+    correct_answer: '.svg',
+    incorrect_answers: ['.png', '.jpeg', '.gif'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question: 'In web design, what does CSS stand for?',
+    correct_answer: 'Cascading Style Sheet',
+    incorrect_answers: [
+      'Counter Strike: Source',
+      'Corrective Style Sheet',
+      'Computer Style Sheet',
+    ],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question:
+      'What is the code name for the mobile operating system Android 7.0?',
+    correct_answer: 'Nougat',
+    incorrect_answers: ['Ice Cream Sandwich', 'Jelly Bean', 'Marshmallow'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question: 'On Twitter, what is the character limit for a Tweet?',
+    correct_answer: '140',
+    incorrect_answers: ['120', '160', '100'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'boolean',
+    difficulty: 'easy',
+    question: 'Linux was first created as an alternative to Windows XP.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
+  },
+  {
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question:
+      'Which programming language shares its name with an island in Indonesia?',
+    correct_answer: 'Java',
+    incorrect_answers: ['Python', 'C', 'Jakarta'],
+  },
+];
+let giusto = localStorage.getItem('giuste');
 
+let sbagliato = localStorage.getItem('sbagliate');
+
+console.log(giusto);
 const showResultBox = () => {
-  const scoreText = document.getElementsByClassName('score-text');
-  scoreText = `Your score${giusto} out of ${questions.length}`;
+  let scoreText = document.getElementsByClassName('score-text')[0];
+  let circularStyle = document.getElementsByClassName('bordo')[0];
+  scoreText.innerText = giusto + '/' + questions.length;
+  console.log(scoreText.innerText);
+  const progressValue = document.getElementsByClassName('progress-value')[0];
 
-  const progressValue = document.getElementsByClassName('progress-value');
-  const circular = document.getElementsByClassName('bordo');
   let progressStartValue = 0;
-  let progressEndValue = (giusto / questions.lenght) * 100;
-  let speed = 15;
-
+  let totDom = questions.length;
+  console.log(totDom);
+  let progressEndValue = (parseInt(giusto) / totDom) * 100;
+  console.log(progressEndValue);
+  let speed = 40;
   let progress = setInterval(() => {
     progressStartValue++;
-    progressValue.textContent = ` ${progressStartValue} % `;
-    let circularStyle = (circular.style.color = `#00FFFF ${
-      progressStartValue * 3.6
-    } `);
+    progressValue.innerText = progressStartValue + '%';
+    // circularStyle.style.background = `conic-gradient(red ${
+    // progressStartValue * 3.6;
+    //  }deg, gray 0deg  ); `;
     if (progressStartValue === progressEndValue) {
       clearInterval(progress);
     }
-  });
-};
+  }, speed);
 
-const showWrongResultBox = () => {
-  const scoreWrongText = document.getElementsByClassName('scoreWrong-text');
-  scoreWrongText = `Your score${sbagliato} out of ${questions.length}`;
+  let scoreWrongText = document.getElementsByClassName('scoreWrong-text')[0];
+  scoreWrongText.innerText = sbagliato + '/' + totDom;
 
   const progressWrongValues = document.getElementsByClassName(
     'progressWrong-values'
-  );
+  )[0];
 
-  let progressStartValue = 0;
-  let progressEndValue = (sbagliato / questions.lenght) * 100;
-  let speeds = 15;
+  let progressStartWrongValue = 0;
+  let progressEndWrongValue = (parseInt(sbagliato) / totDom) * 100;
 
   let progressWrong = setInterval(() => {
-    progressStartValue++;
-    progressWrongValues.textContent = ` ${progressStart} % `;
-    if (progressStartValue !== progressEndValue) {
+    progressStartWrongValue++;
+    progressWrongValues.innerText = progressStartWrongValue + '%';
+    if (progressStartWrongValue === progressEndWrongValue) {
       clearInterval(progressWrong);
     }
   });
 };
-console.log(showResultBox());
-console.log(showWrongResultBox());
+
+showResultBox();
