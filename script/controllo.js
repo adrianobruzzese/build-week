@@ -94,23 +94,6 @@ const questions = [
   },
 ]
 
-//9
-// const random = function () {
-//   let tot = questions.length - 1
-//   const numExt = []
-//   for (let k = 0; k <= tot; k++) {
-//     numExt.push(k)
-//   }
-
-//   const randomI = Math.floor(Math.random() * numExt.length)
-//   const randomNumber = numExt[randomI]
-//   console.log('domanda:' + randomNumber)
-//   numExt.splice(randomI, 1)
-
-//   tot = tot - 1
-
-//   return randomNumber
-// }
 const num1 = []
 for (let i = 0; i <= questions.length - 1; i++) {
   num1.push(i)
@@ -124,7 +107,9 @@ const randomNumber = function () {
 }
 
 let giuste = 0
+
 let sbagliate = 0
+let contatoreDomande = 1
 
 const pageForm = document.getElementsByTagName('form')[0]
 
@@ -132,7 +117,17 @@ pageForm.addEventListener('submit', function (e) {
   e.preventDefault()
 })
 
-//crea bot altre risposte
+const clear = function (quesion, button) {
+  let firstChildElement = quesion.firstChild
+  quesion.removeChild(firstChildElement)
+  for (let r = 0; r < button.length; r++) {
+    button[r].classList.add('invisibile')
+  }
+}
+let button = document.getElementsByClassName('btn')
+const quesion = document.getElementById('question')
+const contatore = document.getElementById('contatore')
+
 const otherAnswers = function () {
   let k = randomNumber()
 
@@ -145,7 +140,6 @@ const otherAnswers = function () {
 
   risposte.sort(() => Math.random() - 0.5)
   console.log(risposte)
-  const quesion = document.getElementById('question')
 
   let newQuestion = document.createElement('h1')
 
@@ -154,7 +148,9 @@ const otherAnswers = function () {
   let answersArray = questions[k].incorrect_answers
   const array = questions[k].incorrect_answers
 
+  //funzione di pulizia del form e h1
   for (let i = 0; i < array.length + 1; i++) {
+    //scrittura del h1 e dei bottoni
     let answers = document.createElement('button')
     answers.innerText = answersArray[i]
     answers.innerText = risposte[i]
@@ -163,36 +159,60 @@ const otherAnswers = function () {
     newQuestion.innerText = questions[k].question
 
     quesion.appendChild(newQuestion)
-    let button = document.getElementsByClassName('btn')
+
     console.log(button)
+
+    //ricezione del click e controllo della risposta
     answers.addEventListener('click', function (e) {
       let clickedAnswer = e.target.innerText
 
       if (clickedAnswer === questions[k].correct_answer) {
+        //aumento del contatore
         giuste++
-        let firstChildElement = quesion.firstChild
-        quesion.removeChild(firstChildElement)
-        for (let r = 0; r < button.length; r++) {
-          button[r].classList.add('invisibile')
+        if (contatoreDomande >= 10) {
+          cambioPagina()
         }
+        clear(quesion, button)
         next()
+        clearInterval(timer)
+        contatoreDomande++
+        contatore.innerText = contatoreDomande
       } else {
+        if (contatoreDomande >= 10) {
+          cambioPagina()
+        }
         sbagliate++
 
-        let firstChildElement = quesion.firstChild
-        quesion.removeChild(firstChildElement)
-        for (let r = 0; r < button.length; r++) {
-          button[r].classList.add('invisibile')
-        }
-
+        clear(quesion, button)
         next()
+        contatoreDomande++
+        contatore.innerText = contatoreDomande
       }
+      localStorage.setItem('giuste', giuste)
+      localStorage.setItem('sbagliate', sbagliate)
       console.log(giuste)
       console.log(sbagliate)
     })
   }
 }
+
 otherAnswers()
+
+const cambioPagina = function () {
+  console.log('Cambierai alla 10?!')
+  window.location.href = 'results.html'
+}
+const timer = window.setInterval(function () {
+  if (contatoreDomande >= 10) {
+    cambioPagina()
+  }
+  contatoreDomande++
+  contatore.innerText = contatoreDomande
+  sbagliate++
+  console.log(sbagliate)
+  clear(quesion, button)
+  otherAnswers()
+}, 59800)
 
 next = function () {
   otherAnswers()
