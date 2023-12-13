@@ -1,11 +1,14 @@
+const giusto = localStorage.getItem('giusto');
+const sbagliato = localStorage.getItem('sbagliato');
+
 const showResultBox = () => {
   const scoreText = document.getElementsByClassName('score-text');
-  scoreText = `Your score${'.correct'} out of ${questions.length}`;
+  scoreText = `Your score${giusto} out of ${questions.length}`;
 
   const progressValue = document.getElementsByClassName('progress-value');
   const circular = document.getElementsByClassName('bordo');
   let progressStartValue = 0;
-  let progressEndValue = (correct / questions.lenght) * 100;
+  let progressEndValue = (giusto / questions.lenght) * 100;
   let speed = 15;
 
   let progress = setInterval(() => {
@@ -22,19 +25,19 @@ const showResultBox = () => {
 
 const showWrongResultBox = () => {
   const scoreWrongText = document.getElementsByClassName('scoreWrong-text');
-  scoreWrongText = `Your score${wrong} out of ${questions.length}`;
+  scoreWrongText = `Your score${sbagliato} out of ${questions.length}`;
 
   const progressWrongValues = document.getElementsByClassName(
     'progressWrong-values'
   );
 
   let progressStartValue = 0;
-  let progressEndValue = (wrong / questions.lenght) * 100;
+  let progressEndValue = (sbagliato / questions.lenght) * 100;
   let speeds = 15;
 
   let progressWrong = setInterval(() => {
     progressStartValue++;
-    progressValue.textContent = ` ${progressStart} % `;
+    progressWrongValues.textContent = ` ${progressStart} % `;
     if (progressStartValue !== progressEndValue) {
       clearInterval(progressWrong);
     }
