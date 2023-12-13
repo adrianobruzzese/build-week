@@ -177,7 +177,7 @@ const otherAnswers = function () {
         }
         next();
         console.log(giuste);
-      } else {
+      } else if (clickedAnswer !== questions[k].correct_answer) {
         sbagliate++;
         let firstChildElement = quesion.firstChild;
         quesion.removeChild(firstChildElement);
@@ -186,11 +186,17 @@ const otherAnswers = function () {
         }
         next();
         console.log(sbagliate);
+      } else {
+        return window.setInterval(otherAnswers, 59800);
+        let firstChildElement = quesion.firstChild;
+        quesion.removeChild(firstChildElement);
+        for (let r = 0; r < button.length; r++) {
+          button[r].classList.add("invisibile");
+        }
       }
     });
   }
 };
-window.setInterval(otherAnswers, 59800);
 otherAnswers();
 
 next = function () {
