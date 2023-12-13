@@ -107,6 +107,7 @@ const randomNumber = function () {
 }
 
 let giuste = 0
+
 let sbagliate = 0
 let contatoreDomande = 1
 
@@ -126,7 +127,7 @@ const clear = function (quesion, button) {
 let button = document.getElementsByClassName('btn')
 const quesion = document.getElementById('question')
 const contatore = document.getElementById('contatore')
-//crea bot altre risposte
+
 const otherAnswers = function () {
   let k = randomNumber()
 
@@ -187,7 +188,8 @@ const otherAnswers = function () {
         contatoreDomande++
         contatore.innerText = contatoreDomande
       }
-
+      localStorage.setItem('giuste', giuste)
+      localStorage.setItem('sbagliate', sbagliate)
       console.log(giuste)
       console.log(sbagliate)
     })
@@ -210,7 +212,7 @@ const timer = window.setInterval(function () {
   console.log(sbagliate)
   clear(quesion, button)
   otherAnswers()
-}, 5000)
+}, 59800)
 
 next = function () {
   otherAnswers()
