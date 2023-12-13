@@ -176,12 +176,19 @@ const otherAnswers = function () {
           button[r].classList.add('invisibile')
         }
         next()
-        console.log(giuste)
       } else {
         sbagliate++
+
+        let firstChildElement = quesion.firstChild
+        quesion.removeChild(firstChildElement)
+        for (let r = 0; r < button.length; r++) {
+          button[r].classList.add('invisibile')
+        }
+
         next()
-        console.log(sbagliate)
       }
+      console.log(giuste)
+      console.log(sbagliate)
     })
   }
 }
