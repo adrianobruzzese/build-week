@@ -175,13 +175,14 @@ const otherAnswers = function () {
         clearInterval(timer);
         clear(quesion, button);
         next();
+
         contatoreDomande++;
         contatore.innerText = contatoreDomande;
       } else {
+        sbagliate++;
         if (contatoreDomande >= 10) {
           cambioPagina();
         }
-        sbagliate++;
 
         clear(quesion, button);
         next();
@@ -203,12 +204,13 @@ const cambioPagina = function () {
   window.location.href = "results.html";
 };
 const timer = window.setInterval(function () {
+  sbagliate++;
   if (contatoreDomande >= 10) {
     cambioPagina();
   }
   contatoreDomande++;
   contatore.innerText = contatoreDomande;
-  sbagliate++;
+
   console.log(sbagliate);
   clear(quesion, button);
   otherAnswers();

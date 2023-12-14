@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Results</title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" href="./assets/css/results.css" />
+
     <link rel="stylesheet" href="assets/css/results.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@400;600&display=swap"
       rel="stylesheet"
@@ -38,22 +44,30 @@
     <main class="flex-container">
       <div class="correct">
         <h3>Correct</h3>
-        <p class="question">questions</p>
+
+        <span class="progress-value">0%</span>
+        <p class="question"><span class="score-text"> 0/10 </span>questions</p>
       </div>
       <div class="bordo">
-        <h5>Congratulations!</h5>
-        <h4>You passed the exam.</h4>
-        <p>
-          We'll send you the certificate <br />
-          in few minutes.
-        </p>
-        <p>
-          Check your email (including <br />
-          promotions / spam folder)
-        </p>
+        <div class="inner-circle">
+          <h5>Congratulations!</h5>
+          <h4>You passed the exam.</h4>
+          <p>
+            We'll send you the certificate <br />
+            in few minutes.
+          </p>
+          <p>
+            Check your email (including <br />
+            promotions / spam folder)
+          </p>
+        </div>
       </div>
       <div class="wrong">
         <h3>Wrong</h3>
+        <span class="progressWrong-values">0%</span>
+        <p class="question">
+          <span class="scoreWrong-text"> 0/10 </span>questions
+        </p>
         <p class="question">questions</p>
       </div>
     </main>
@@ -62,5 +76,6 @@
         <a href="feedback.html"><button>RATE US</button></a>
       </div>
     </footer>
+    <script src="percentage.js"></script>
   </body>
 </html>
