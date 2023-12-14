@@ -147,11 +147,28 @@ showResultBox();
 const writeElements = () => {
   const head5 = document.getElementsByTagName("h5")[0];
   const head4 = document.getElementsByTagName("h4")[0];
+  const paragraph = document.getElementsByTagName("p")[2];
   if (giusto > sbagliato) {
     head5.innerText = "Congratulations!";
     head4.innerText = "You passed the exam.";
+    paragraph.innerHTML = ` <p>
+    We'll send you the certificate <br />
+    in few minutes.
+  </p>
+  <p>
+    Check your email (including <br />
+    promotions / spam folder)
+  </p>`;
   }
-  head5.innerText = "Retry!";
-  head4.innerText = "try the oral exam.";
+  head5.innerText = "Not successful !";
+  head4.innerText = "Try the oral exam.";
+  paragraph.innerHTML = `<p>
+  you have not <br />
+  passed the test.
+</p>
+<p>
+ you could try  <br />
+  with an oral!
+</p>`;
 };
 writeElements();
