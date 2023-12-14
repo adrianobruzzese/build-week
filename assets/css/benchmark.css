@@ -16,20 +16,20 @@ body {
 }
 
 .foto {
+  position: absolute;
+  top: 40px; /* Distanza dal top */
+  left: 100px; /* Distanza da sinistra */
+  height: 60px;
   width: 250px;
-  position: fixed;
-  padding-left: 70px;
-  padding-top: 35px;
-  top: 20px;
-  left: 20px;
 }
 
 .countdown {
   --s: calc(var(--t) / 1);
   display: grid;
   position: fixed;
-  top: 0px;
-  right: 150px;
+
+  right: 250px;
+  top: 45px;
   width: 10em;
   height: 10em;
   animation: t 60s linear infinite;
@@ -41,18 +41,18 @@ body {
   content: "" counter(s, decimal-leading-zero);
   font: 3em /2 outfit;
   counter-reset: s var(--s);
-
   position: absolute;
-  top: 50%;
-  left: 50%;
+  left: 80px;
+  top: 80px;
+
   transform: translate(-50%, -50%);
 }
 .secondoLabel {
   color: white;
   font-family: inter;
   font-size: 0.8em;
-  padding-left: 50px;
-  padding-bottom: 43px;
+  padding-left: 48px;
+  padding-bottom: 50px;
 }
 
 .terzoLabel {
