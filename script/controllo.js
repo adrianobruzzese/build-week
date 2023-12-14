@@ -92,26 +92,9 @@ const questions = [
     correct_answer: 'Java',
     incorrect_answers: ['Python', 'C', 'Jakarta'],
   },
-]
-
-//9
-// const random = function () {
-//   let tot = questions.length - 1
-//   const numExt = []
-//   for (let k = 0; k <= tot; k++) {
-//     numExt.push(k)
-//   }
-
-//   const randomI = Math.floor(Math.random() * numExt.length)
-//   const randomNumber = numExt[randomI]
-//   console.log('domanda:' + randomNumber)
-//   numExt.splice(randomI, 1)
-
-//   tot = tot - 1
-
-//   return randomNumber
-// }
-const num1 = []
+];
+let timer;
+const num1 = [];
 for (let i = 0; i <= questions.length - 1; i++) {
   num1.push(i)
 }
@@ -169,24 +152,66 @@ const otherAnswers = function () {
       let clickedAnswer = e.target.innerText
 
       if (clickedAnswer === questions[k].correct_answer) {
-        giuste++
-        let firstChildElement = quesion.firstChild
-        quesion.removeChild(firstChildElement)
-        for (let r = 0; r < button.length; r++) {
-          button[r].classList.add('invisibile')
+        //aumento del contatore
+
+        if (contatoreDomande >= 10) {
+          giuste++;
+
+          cambioPagina();
         }
-        next()
-        console.log(giuste)
+        giuste++;
+        clearInterval(timer);
+        clear(quesion, button);
+        next();
+
+        contatoreDomande++;
+        contatore.innerText = contatoreDomande;
       } else {
-        sbagliate++
-        next()
-        console.log(sbagliate)
+        if (contatoreDomande >= 10) {
+          sbagliate++;
+
+          cambioPagina();
+        }
+        sbagliate++;
+        clearInterval(timer);
+        clear(quesion, button);
+        next();
+
+        contatoreDomande++;
+        contatore.innerText = contatoreDomande;
       }
-    })
+    });
   }
-}
-otherAnswers()
+};
+
+otherAnswers();
+
+const cambioPagina = function () {
+  localStorage.setItem("giuste", giuste);
+  localStorage.setItem("sbagliate", sbagliate);
+  console.log("Cambierai alla 10?!");
+  window.location.href = "results.html";
+};
+const setTime = () => {
+  timer = window.setInterval(function () {
+    if (contatoreDomande >= 10) {
+      sbagliate++;
+      console.log(giuste);
+      console.log(sbagliate);
+      cambioPagina();
+    }
+    sbagliate++;
+    contatoreDomande++;
+    contatore.innerText = contatoreDomande;
+
+    console.log(sbagliate);
+    clear(quesion, button);
+    otherAnswers();
+  }, 59800);
+};
 
 next = function () {
-  otherAnswers()
-}
+  setTime();
+  otherAnswers();
+};
+setTime();

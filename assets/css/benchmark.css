@@ -1,12 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
+
+@property --t {
+  syntax: "<number>";
+  initial-value: 60;
+  inherits: true;
+}
+
+@property --s {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+
+.foto {
+  position: absolute;
+  top: 40px; /* Distanza dal top */
+  left: 100px; /* Distanza da sinistra */
+  height: 60px;
+  width: 250px;
+}
+
+.countdown {
+  --s: calc(var(--t) / 1);
+  display: grid;
+  position: fixed;
+
+  right: 250px;
+  top: 45px;
+  width: 10em;
+  height: 10em;
+  animation: t 60s linear infinite;
+}
+
+.countdown::after {
+  text-align: center;
+  color: white;
+  content: "" counter(s, decimal-leading-zero);
+  font: 3em /2 outfit;
+  counter-reset: s var(--s);
+  position: absolute;
+  left: 80px;
+  top: 80px;
+
+  transform: translate(-50%, -50%);
+}
+.secondoLabel {
+  color: white;
+  font-family: inter;
+  font-size: 0.8em;
+  padding-left: 48px;
+  padding-bottom: 50px;
+}
+
+.terzoLabel {
+  color: white;
+  font-family: inter;
+  font-size: 0.8em;
+  padding-left: 45px;
+  padding-bottom: 40px;
+}
+@keyframes t {
+  to {
+    --t: 0;
+  }
+}
+svg {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+[r] {
+  fill: none;
+  stroke: silver;
+}
+[r] + [r] {
+  --k: calc(var(--t) / 60);
+  transform: rotate(-90deg);
+
+  stroke: color-mix(in hsl shorter hue, #00ffff calc(var(--k) * 100%), #00ffff);
+  stroke-dasharray: var(--k) 1;
+}
 
 body,
 html {
-  height: 100%;
+  /* height: 100%; */
   background-image: url(../images/bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'outfit', sans-serif;
+  font-family: "outfit", sans-serif;
 }
 
 main {
@@ -15,10 +96,6 @@ main {
   margin-left: auto;
   margin-right: auto;
   padding: 8%;
-}
-header {
-  padding-left: 80px;
-  padding-top: 30px;
 }
 
 img {
