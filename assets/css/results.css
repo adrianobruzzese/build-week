@@ -31,15 +31,15 @@ h1 {
   color: rgb(235, 234, 234);
   text-align: center;
   font-size: 30px;
-  margin-bottom: 80px;
+  margin-bottom: 140px;
   font-weight: 400;
   margin-top: 10px;
 }
 .bordo {
   text-align: center;
 
-  width: 280px;
-  height: 270px;
+  width: 320px;
+  height: 320px;
   position: absolute;
   display: inline-block;
   border-radius: 50% 50% 50% 50%;
@@ -84,6 +84,7 @@ p {
 }
 .wrong {
   font-size: 4em;
+  color: rgb(235, 234, 234);
 }
 .correct .wrong p {
   margin: 1.5em;
@@ -107,10 +108,10 @@ button {
   color: #ffffff;
   font-size: 18px;
   box-shadow: 0px 0px 14px 0px rgba(19, 22, 173, 0.596);
-  margin-top: 80px;
+  margin-top: 160px;
   padding: 0.5em;
   font-weight: 600;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 .question {
   font-size: 22px;
