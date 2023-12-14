@@ -107,9 +107,10 @@ const randomNumber = function () {
 };
 
 let giuste = 0;
-
 let sbagliate = 0;
 let contatoreDomande = 1;
+let tempoRimanente = 60;
+let intervalloTimer;
 
 const pageForm = document.getElementsByTagName("form")[0];
 
@@ -117,29 +118,86 @@ pageForm.addEventListener("submit", function (e) {
   e.preventDefault();
 });
 
-const clear = function (quesion, button) {
+const clear = function (quesion, button, countdown) {
   let firstChildElement = quesion.firstChild;
   quesion.removeChild(firstChildElement);
+
+  // Rimuovi l'elemento del countdown
+  countdown.remove();
+
   for (let r = 0; r < button.length; r++) {
     button[r].classList.add("invisibile");
   }
 };
+
 let button = document.getElementsByClassName("btn");
+
 const quesion = document.getElementById("question");
 const contatore = document.getElementById("contatore");
 
+const avviaTimer = function (countdown) {
+  // Pulisci l'intervalloTimer esistente, se presente
+  if (intervalloTimer) {
+    clearInterval(intervalloTimer);
+  }
+
+  // Richiami il timer
+  const timerElement = countdown.querySelector(".tempo");
+
+  // Resetta il timer
+  tempoRimanente = 60;
+
+  // Avvia l'intervallo del timer
+  intervalloTimer = setInterval(function () {
+    timerElement.textContent = tempoRimanente;
+
+    if (tempoRimanente <= 0) {
+      clearInterval(intervalloTimer);
+
+      // Se è l'ultima domanda, cambia pagina
+      if (contatoreDomande >= 10) {
+        cambioPagina();
+      } else {
+        // Altrimenti, passa alla prossima domanda e avvia il timer
+        otherAnswers();
+        avviaTimer(countdown);
+      }
+    } else {
+      tempoRimanente--;
+    }
+  }, 1000);
+};
+
 const otherAnswers = function () {
+  // RIMUOVERE il vecchio timer
+  const existingCountdown = document.querySelector(".countdown");
+  if (existingCountdown) {
+    existingCountdown.remove();
+  }
   let k = randomNumber();
 
   const correct = [questions[k].correct_answer];
   const incorrect = questions[k].incorrect_answers;
 
-  console.log(correct);
-  console.log(incorrect);
   const risposte = incorrect.concat(correct);
 
   risposte.sort(() => Math.random() - 0.5);
-  console.log(risposte);
+
+  // Crea un nuovo elemento di countdown
+  let newCountdown = document.createElement("div");
+  newCountdown.classList.add("countdown");
+  newCountdown.innerHTML = `
+    <div class="secondoLabel">SECONDS</div>
+    <div class="terzoLabel">REMAINING</div>
+    <svg viewBox="-50 -50 100 100" stroke-width="10">
+      <circle r="45"></circle>
+      <circle r="45" pathLength="1"></circle>
+    </svg>
+    
+  `;
+
+  // Aggiungi il nuovo elemento di countdown al DOM
+  document.body.appendChild(newCountdown);
 
   let newQuestion = document.createElement("h1");
 
@@ -150,7 +208,6 @@ const otherAnswers = function () {
 
   //funzione di pulizia del form e h1
   for (let i = 0; i < array.length + 1; i++) {
-    //scrittura del h1 e dei bottoni
     let answers = document.createElement("button");
     answers.innerText = answersArray[i];
     answers.innerText = risposte[i];
@@ -160,20 +217,17 @@ const otherAnswers = function () {
 
     quesion.appendChild(newQuestion);
 
-    console.log(button);
-
     //ricezione del click e controllo della risposta
     answers.addEventListener("click", function (e) {
       let clickedAnswer = e.target.innerText;
 
       if (clickedAnswer === questions[k].correct_answer) {
-        //aumento del contatore
         giuste++;
         if (contatoreDomande >= 10) {
           cambioPagina();
         }
         clearInterval(timer);
-        clear(quesion, button);
+        clear(quesion, button, newCountdown);
         next();
 
         contatoreDomande++;
@@ -184,25 +238,24 @@ const otherAnswers = function () {
           cambioPagina();
         }
 
-        clear(quesion, button);
+        clear(quesion, button, newCountdown);
         next();
         contatoreDomande++;
         contatore.innerText = contatoreDomande;
       }
       localStorage.setItem("giuste", giuste);
       localStorage.setItem("sbagliate", sbagliate);
-      console.log(giuste);
-      console.log(sbagliate);
     });
   }
-};
 
-otherAnswers();
+  // Avvia il timer per il nuovo countdown
+  avviaTimer(newCountdown);
+};
 
 const cambioPagina = function () {
-  console.log("Cambierai alla 10?!");
   window.location.href = "results.html";
 };
+
 const timer = window.setInterval(function () {
   sbagliate++;
   if (contatoreDomande >= 10) {
@@ -211,11 +264,13 @@ const timer = window.setInterval(function () {
   contatoreDomande++;
   contatore.innerText = contatoreDomande;
 
-  console.log(sbagliate);
-  clear(quesion, button);
+  clear(quesion, button, countdown);
   otherAnswers();
 }, 59800);
 
 next = function () {
   otherAnswers();
 };
+
+// Prima esecuzione
+otherAnswers();
