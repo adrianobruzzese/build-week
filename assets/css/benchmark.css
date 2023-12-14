@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
-body {
-  background-image: url(../images/bg.jpg);
-}
 
 @property --t {
   syntax: "<number>";
@@ -82,4 +79,116 @@ svg {
 
   stroke: color-mix(in hsl shorter hue, #00ffff calc(var(--k) * 100%), #00ffff);
   stroke-dasharray: var(--k) 1;
+}
+
+body,
+html {
+  /* height: 100%; */
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "outfit", sans-serif;
+}
+
+main {
+  height: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8%;
+}
+
+img {
+  height: 40px;
+  width: 180px;
+  top: 6%;
+  left: 12%;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding-top: 50px;
+}
+
+#timer {
+  color: white;
+  display: block;
+  margin-left: 70%;
+}
+
+h1 {
+  font-weight: 400;
+  display: inline-block;
+  width: 500px;
+
+  font-size: 3em;
+  color: white;
+  margin-bottom: 60px;
+}
+
+#question {
+  margin-top: 100px;
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+.btn {
+  box-shadow: 0px 0px 5px 8px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 5px 8px rgba(255, 255, 255, 0.042);
+  -moz-box-shadow: 0px 0px 5px 8px rgba(255, 255, 255, 0.468);
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 500px;
+  height: 75px;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.102);
+  border-radius: 42px;
+  border: 2px solid #ffffff2a;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 76px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+.btn:hover {
+  background-color: purple;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+p {
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+#contatore {
+  color: white;
+  text-decoration: none;
+}
+
+#ten {
+  font-weight: 700;
+  color: rgb(170, 41, 170);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.invisibile {
+  display: none;
 }
