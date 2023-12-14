@@ -148,7 +148,7 @@ const writeElements = () => {
   const head5 = document.getElementsByTagName("h5")[0];
   const head4 = document.getElementsByTagName("h4")[0];
   const paragraph = document.getElementsByTagName("p")[2];
-  if (giusto > sbagliato) {
+  if (parseInt(giusto) > parseInt(sbagliato)) {
     head5.innerText = "Congratulations!";
     head4.innerText = "You passed the exam.";
     paragraph.innerHTML = ` <p>
@@ -159,10 +159,10 @@ const writeElements = () => {
     Check your email (including <br />
     promotions / spam folder)
   </p>`;
-  }
-  head5.innerText = "Not successful !";
-  head4.innerText = "Try the oral exam.";
-  paragraph.innerHTML = `<p>
+  } else {
+    head5.innerText = "Not successful !";
+    head4.innerText = "Try the oral exam.";
+    paragraph.innerHTML = `<p>
   you have not <br />
   passed the test.
 </p>
@@ -170,5 +170,6 @@ const writeElements = () => {
  you could try  <br />
   with an oral!
 </p>`;
+  }
 };
 writeElements();
