@@ -110,6 +110,8 @@ let giuste = 0;
 
 let sbagliate = 0;
 let contatoreDomande = 1;
+let tempoRimanente = 60;
+let intervalloTimer;
 
 const pageForm = document.getElementsByTagName("form")[0];
 
@@ -117,9 +119,10 @@ pageForm.addEventListener("submit", function (e) {
   e.preventDefault();
 });
 
-const clear = function (quesion, button) {
+const clear = function (quesion, button, countdown) {
   let firstChildElement = quesion.firstChild;
   quesion.removeChild(firstChildElement);
+  // countdown.remove();
   for (let r = 0; r < button.length; r++) {
     button[r].classList.add("invisibile");
   }
@@ -128,7 +131,43 @@ let button = document.getElementsByClassName("btn");
 const quesion = document.getElementById("question");
 const contatore = document.getElementById("contatore");
 
+const avviaTimer = function (countdown) {
+  // Pulisci l'intervalloTimer esistente, se presente
+  if (intervalloTimer) {
+    clearInterval(intervalloTimer);
+  }
+  // Richiami il timer
+  let timerElement = countdown.querySelector(".tempo");
+
+  // Resetta il timer
+  tempoRimanente = 60;
+  // Avvia l'intervallo del timer
+  intervalloTimer = setInterval(function () {
+    timerElement.textContent = tempoRimanente;
+
+    if (tempoRimanente <= 0) {
+      clearInterval(intervalloTimer);
+
+      // Se è l'ultima domanda, cambia pagina
+      if (contatoreDomande >= 10) {
+        cambioPagina();
+      } else {
+        // Altrimenti, passa alla prossima domanda e avvia il timer
+        // otherAnswers();
+        avviaTimer(countdown);
+      }
+    } else {
+      tempoRimanente--;
+    }
+  }, 1000);
+};
 const otherAnswers = function () {
+  // RIMUOVERE il vecchio timer
+  const existingCountdown = document.querySelector(".countdown");
+  if (existingCountdown) {
+    existingCountdown.remove();
+  }
+
   let k = randomNumber();
 
   const correct = [questions[k].correct_answer];
@@ -140,7 +179,19 @@ const otherAnswers = function () {
 
   risposte.sort(() => Math.random() - 0.5);
   console.log(risposte);
-
+  let newCountdown = document.createElement("div");
+  newCountdown.classList.add("countdown");
+  newCountdown.innerHTML = `
+    <div class="secondoLabel">SECONDS</div>
+    <div class="terzoLabel">REMAINING</div>
+    <svg viewBox="-50 -50 100 100" stroke-width="10">
+      <circle r="45"></circle>
+      <circle r="45" pathLength="1"></circle>
+    </svg>
+    
+  `;
+  // Aggiungi il nuovo elemento di countdown al DOM
+  document.body.appendChild(newCountdown);
   let newQuestion = document.createElement("h1");
 
   const answersSpace = document.getElementsByTagName("form");
@@ -176,7 +227,7 @@ const otherAnswers = function () {
         }
         giuste++;
         clearInterval(timer);
-        clear(quesion, button);
+        clear(quesion, button, newCountdown);
         next();
 
         contatoreDomande++;
@@ -189,7 +240,7 @@ const otherAnswers = function () {
         }
         sbagliate++;
         clearInterval(timer);
-        clear(quesion, button);
+        clear(quesion, button, newCountdown);
         next();
 
         contatoreDomande++;
@@ -197,8 +248,9 @@ const otherAnswers = function () {
       }
     });
   }
+  // Avvia il timer per il nuovo countdown
+  avviaTimer(newCountdown);
 };
-
 otherAnswers();
 
 const cambioPagina = function () {
