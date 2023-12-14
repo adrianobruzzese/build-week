@@ -168,10 +168,13 @@ const otherAnswers = function () {
 
       if (clickedAnswer === questions[k].correct_answer) {
         //aumento del contatore
-        giuste++
+
         if (contatoreDomande >= 10) {
+          giuste++
+
           cambioPagina()
         }
+        giuste++
         clear(quesion, button)
         next()
         clearInterval(timer)
@@ -179,19 +182,16 @@ const otherAnswers = function () {
         contatore.innerText = contatoreDomande
       } else {
         if (contatoreDomande >= 10) {
+          sbagliate++
+
           cambioPagina()
         }
         sbagliate++
-
         clear(quesion, button)
         next()
         contatoreDomande++
         contatore.innerText = contatoreDomande
       }
-      localStorage.setItem('giuste', giuste)
-      localStorage.setItem('sbagliate', sbagliate)
-      console.log(giuste)
-      console.log(sbagliate)
     })
   }
 }
@@ -199,16 +199,22 @@ const otherAnswers = function () {
 otherAnswers()
 
 const cambioPagina = function () {
+  localStorage.setItem('giuste', giuste)
+  localStorage.setItem('sbagliate', sbagliate)
   console.log('Cambierai alla 10?!')
   window.location.href = 'results.html'
 }
 const timer = window.setInterval(function () {
   if (contatoreDomande >= 10) {
+    sbagliate++
+    console.log(giuste)
+    console.log(sbagliate)
     cambioPagina()
   }
+  sbagliate++
   contatoreDomande++
   contatore.innerText = contatoreDomande
-  sbagliate++
+
   console.log(sbagliate)
   clear(quesion, button)
   otherAnswers()
