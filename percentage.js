@@ -143,3 +143,15 @@ const showResultBox = () => {
 };
 
 showResultBox();
+
+const writeElements = () => {
+  const head5 = document.getElementsByTagName("h5")[0];
+  const head4 = document.getElementsByTagName("h4")[0];
+  if (giusto > sbagliato) {
+    head5.innerText = "Congratulations!";
+    head4.innerText = "You passed the exam.";
+  }
+  head5.innerText = "Retry!";
+  head4.innerText = "try the oral exam.";
+};
+writeElements();
