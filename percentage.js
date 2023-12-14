@@ -121,7 +121,7 @@ const showResultBox = () => {
 
     circularStyle.style.background = `conic-gradient(#00ffff ${
       progressEndValue * 3.6
-    }deg, #80808000 0deg)`;
+    }deg,#d20094 0deg)`;
     if (progressStartValue === progressEndValue) {
       clearInterval(progress);
     }
