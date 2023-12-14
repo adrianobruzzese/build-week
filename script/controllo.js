@@ -137,13 +137,13 @@ const avviaTimer = function (countdown) {
     clearInterval(intervalloTimer);
   }
   // Richiami il timer
-  let timerElement = countdown.querySelector(".tempo");
+  // let timerElement = countdown.querySelector(".tempo");
 
   // Resetta il timer
   tempoRimanente = 60;
   // Avvia l'intervallo del timer
   intervalloTimer = setInterval(function () {
-    timerElement.textContent = tempoRimanente;
+    // timerElement.textContent = tempoRimanente;
 
     if (tempoRimanente <= 0) {
       clearInterval(intervalloTimer);
