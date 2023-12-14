@@ -162,14 +162,13 @@ const writeElements = () => {
   } else {
     head5.innerText = "Not successful !";
     head4.innerText = "Try the oral exam.";
-    paragraph.innerHTML = `<p>
-  you have not <br />
+    paragraph.innerHTML = `<h2>
+  You have not 
   passed the test.
-</p>
-<p>
- you could try  <br />
+</br>
+ You could try  
   with an oral!
-</p>`;
+</h2>`;
   }
 };
 writeElements();
