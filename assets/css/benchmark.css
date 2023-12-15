@@ -11,19 +11,22 @@
   initial-value: 0;
   inherits: true;
 }
-
+/* header {
+  padding: 40px 50px 100px 50px;
+} */
 .foto {
-  position: absolute;
-  top: 40px; /* Distanza dal top */
-  left: 100px; /* Distanza da sinistra */
-  height: 60px;
-  width: 250px;
+  padding-top: 1.8px;
+  padding-left: 41.8px;
+  margin-top: 40px;
+  margin-left: 50px;
+  height: 40px;
+  width: 160px;
 }
 
 .countdown {
   --s: calc(var(--t) / 1);
   display: grid;
-  position: fixed;
+  position: absolute;
 
   right: 250px;
   top: 45px;
@@ -91,11 +94,14 @@ html {
 }
 
 main {
-  height: 700px;
+  height: 100%;
 
   margin-left: auto;
   margin-right: auto;
-  padding: 8%;
+  padding-top: 4%;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-bottom: 0%;
 }
 
 img {
@@ -108,11 +114,11 @@ img {
 footer {
   text-align: center;
   color: white;
-  position: absolute;
+  height: 40px;
   bottom: 0;
   width: 100%;
-  height: 100px;
-  padding-top: 50px;
+  /* height: 100px; */
+  margin-top: 90px;
 }
 
 #timer {
@@ -124,7 +130,7 @@ footer {
 h1 {
   font-weight: 400;
   display: inline-block;
-  width: 500px;
+  width: 1000px;
 
   font-size: 3em;
   color: white;
@@ -134,10 +140,15 @@ h1 {
 #question {
   margin-top: 100px;
   text-align: center;
+  margin-bottom: 25px;
 }
 
 form {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 900px;
 }
 
 .btn {
@@ -151,7 +162,11 @@ form {
   border-bottom-style: solid;
   border-bottom-style: hidden;
   border-inline-width: thin;
-  width: 300px;
+  width: 400px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+
   /* box-shadow: 0px 0px 5px 8px rgb(255, 255, 255);
   -webkit-box-shadow: 0px 0px 5px 8px rgba(255, 255, 255, 0.042);
   -moz-box-shadow: 0px 0px 5px 8px rgba(255, 255, 255, 0.468);
